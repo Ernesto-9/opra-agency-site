@@ -1,0 +1,275 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Paleta Opra
+   #060D18 azul casi negro (fondo)   #0B1B33 azul profundo
+   #1E2F4F azul marino               #BFE6FF azul cielo
+   #F2F1F7 off-white (texto)         #FF3B1D naranja rojizo (SOLO acento) */
+:root {
+  --opra-deep: #060d18;
+  --opra-navy: #0b1b33;
+  --opra-marine: #1e2f4f;
+  --opra-sky: #bfe6ff;
+  --opra-off-white: #f2f1f7;
+  --opra-orange: #ff3b1d;
+
+  --background: #060d18;
+  --foreground: #f2f1f7;
+  --card: #0b1b33;
+  --card-foreground: #f2f1f7;
+  --popover: #0b1b33;
+  --popover-foreground: #f2f1f7;
+  --primary: #bfe6ff;
+  --primary-foreground: #060d18;
+  --secondary: #1e2f4f;
+  --secondary-foreground: #f2f1f7;
+  --muted: #1e2f4f;
+  --muted-foreground: oklch(0.72 0.03 240);
+  --accent: #ff3b1d;
+  --accent-foreground: #f2f1f7;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: #1e2f4f;
+  --input: #1e2f4f;
+  --ring: #bfe6ff;
+  --chart-1: #bfe6ff;
+  --chart-2: #ff3b1d;
+  --chart-3: #1e2f4f;
+  --chart-4: #0b1b33;
+  --chart-5: #f2f1f7;
+  --radius: 0.75rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: #060d18;
+  --foreground: #f2f1f7;
+  --card: #0b1b33;
+  --card-foreground: #f2f1f7;
+  --popover: #0b1b33;
+  --popover-foreground: #f2f1f7;
+  --primary: #bfe6ff;
+  --primary-foreground: #060d18;
+  --secondary: #1e2f4f;
+  --secondary-foreground: #f2f1f7;
+  --muted: #1e2f4f;
+  --muted-foreground: oklch(0.72 0.03 240);
+  --accent: #ff3b1d;
+  --accent-foreground: #f2f1f7;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: #f2f1f7;
+  --border: #1e2f4f;
+  --input: #1e2f4f;
+  --ring: #bfe6ff;
+  --chart-1: #bfe6ff;
+  --chart-2: #ff3b1d;
+  --chart-3: #1e2f4f;
+  --chart-4: #0b1b33;
+  --chart-5: #f2f1f7;
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  /* Tipografía de marca: se define una sola vez en layout.tsx (next/font/local).
+     Para cambiarla, se cambia ahí y todo el sitio la sigue. */
+  --font-sans: var(--font-stack-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: var(--font-serif-accent), Georgia, serif;
+  --color-opra-sky: var(--opra-sky);
+  --color-opra-orange: var(--opra-orange);
+  --color-opra-navy: var(--opra-navy);
+  --color-opra-marine: var(--opra-marine);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    cursor: none;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  [data-scroll-container] {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  section {
+    transform: translateZ(0);
+    will-change: transform;
+    contain: layout style paint;
+  }
+
+  button {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+/* Borde que se delinea siguiendo el cursor (ver components/glow-border.tsx).
+   El anillo de 1px se pinta con un degradado radial anclado al puntero y se
+   recorta con mask-composite: exclude para que solo quede el filo. */
+[data-glow-border] {
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-intensity: 0;
+}
+
+[data-glow-border]::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 2;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  background: radial-gradient(
+    9rem circle at var(--glow-x) var(--glow-y),
+    rgba(255, 59, 29, calc(var(--glow-intensity) * 0.95)) 0%,
+    rgba(191, 230, 255, calc(var(--glow-intensity) * 0.85)) 38%,
+    rgba(30, 47, 79, calc(var(--glow-intensity) * 0.5)) 62%,
+    transparent 78%
+  );
+  /* Las dos máscaras van juntas y los composite DESPUÉS: el atajo -webkit-mask
+     resetea mask-composite, y sin la exclusión el degradado rellena el botón
+     entero en vez de quedarse en el filo. */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: opacity 260ms ease;
+}
+
+/* Pulso lento cuando nadie lo está tocando, para que el botón no quede muerto */
+[data-glow-border][data-idle-pulse]::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--sweep, 0deg),
+    transparent 0deg,
+    rgba(191, 230, 255, 0.75) 28deg,
+    rgba(255, 59, 29, 0.5) 46deg,
+    transparent 78deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: opra-sweep 4.5s linear infinite;
+  opacity: calc(1 - var(--glow-intensity));
+  transition: opacity 260ms ease;
+}
+
+@property --sweep {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes opra-sweep {
+  to {
+    --sweep: 360deg;
+  }
+}
+
+/* Numeración de los casos de uso por contador CSS, no por índice de JS: en
+   celular una tarjeta se oculta con display:none y los contadores no cuentan
+   los elementos ocultos, así que la lista se renumera sola (01, 02, 03, 04). */
+[data-casos-grid] {
+  counter-reset: caso;
+}
+
+[data-caso-num]::before {
+  counter-increment: caso;
+  content: counter(caso, decimal-leading-zero);
+}
+
+/* Empujoncito lateral de la flecha del hero */
+@keyframes opra-nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-glow-border][data-idle-pulse]::before {
+    animation: none;
+  }
+
+  .animate-\[opra-nudge_1\.8s_ease-in-out_infinite\] {
+    animation: none;
+  }
+}
